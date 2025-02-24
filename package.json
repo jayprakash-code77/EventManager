@@ -1,0 +1,24 @@
+{
+  "name": "eventmanager",
+  "version": "1.0.0",
+  "description": "Interactive College Event Management Website Managing college events is challenging as students often miss updates, struggle with registration, and lack real-time information. Features: (User Roles and Authentication, Event Details, Event Registration, Notifications &amp; Real-Time Updates, Event Discussion Forum, Admin Dashboard, Responsive Design)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayprakash-code77/EventManager.git"
+  },
+  "author": "Jayprakash Maurya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayprakash-code77/EventManager/issues"
+  },
+  "homepage": "https://github.com/jayprakash-code77/EventManager#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
+  }
+}
