@@ -1,11 +1,18 @@
 const express = require("express");
 const app = express();
+const path = require("path");
+const routes = require("./routes");
+const dotenv = require('dotenv');
 
+
+app.set("views engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+dotenv.config({ path: './config.env' });
 
 app.get("/", (req, res) => {
-    res.send("I am landing page");
-})
-
-app.listen(3000, () => {
-    console.log("Server listening on port 3000!!!");
+    res.render("home.ejs");
 });
+
+app.use("/api",routes);
+
+module.exports = app;
