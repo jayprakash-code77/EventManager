@@ -9,6 +9,8 @@ app.set("views engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 dotenv.config({ path: './config.env' });
 
+app.use(express.static(path.join(__dirname, 'public')));  // Serve static files from the "public" folder
+
 app.get("/", (req, res) => {
     res.render("home.ejs");
 });
