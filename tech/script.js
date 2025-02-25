@@ -78,3 +78,16 @@ prevNextIcon.forEach(icon => {
       renderCalendar(); // Re-render calendar
   });
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const signInButton = document.querySelector(".sign-in-button");
+
+  if (signInButton) {
+      signInButton.addEventListener("click", function () {
+          window.location.href = "login.html"; // Replace with your actual file name
+      });
+  }
+});
