@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Store Login & Signup</title>
+    <link rel="stylesheet" href="login.css">
+    <script defer src="login.js"></script>
+</head>
+<body>
+    <section>
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <h2>Vidyalankar Events</h2>
+                </div>
+
+                <div class="navList">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Features</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">contact us</a></li>
+                    </ul>
+
+                    <div class="dropdown">
+                        <button class="dropdown-button" onclick="toggleDropdown()">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                          Account
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        
+                        <div class="dropdown-content" id="myDropdown">
+                          <p class="sign-in-text">Sign in to access your profile and manage events</p>
+                          <button class="sign-in-button">Sign In</button>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Registered Events
+                            <span class="count">3</span>
+                          </a>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            Liked Events
+                            <span class="count">12</span>
+                          </a>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Settings
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                
+                  
+            </div>
+        </header>
+    </section>
+
+    <section class="con-box">
+    <div class="container">
+        <div class="form-box" id="login-box">
+            <h2>Welcome Back</h2>
+            <p>Sign in to your account to continue</p>
+
+            <form id="login-form" onsubmit="event.preventDefault(); sendOTP('login-form', 'otp-box-login', 'resend-login');">
+                <div class="input-group">
+                
+                    <input type="text" id="login-email" placeholder="Email or Mobile" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+                </div>
+                <div class="captcha-group">
+                    <span id="captcha-display-login">ABCD12</span>
+                    <span class="refresh-captcha" onclick="generateCaptcha('captcha-login', 'captcha-display-login')">🔄</span>
+                    <input type="text" id="captcha-login" placeholder="Enter Captcha" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div id="otp-box-login" style="display:none;">
+                <input type="text" id="otp-login" placeholder="Enter OTP" required>
+                <button onclick="verifyOTP('otp-login', 'otp-box-login', 'login-form', 'otp-error-login')">Verify OTP</button>
+                <p id="otp-error-login" style="color: red;"></p>
+                <button id="resend-login" style="display:none;" onclick="sendOTP('login-form', 'otp-box-login', 'resend-login')">Resend OTP</button>
+            </div>
+            <p class="switch-form-link" onclick="showSignup()">Don't have an account?<span>Sign Up</span></p>
+        </div>
+
+        <div class="form-box" id="signup-box" style="display: none;">
+            <h2>Create Account</h2>
+            <p>Join the Vidyalankar events community.</p>
+            <!-- New Fields for Name, Gender, DOB -->
+            <form id="signup-form" onsubmit="event.preventDefault(); sendOTP('signup-form', 'otp-box-signup', 'resend-signup');">
+                <div class="input-group">
+                    <input type="text" id="first-name" placeholder="First Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="last-name" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gender:</label><br>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+                <div class="input-group">
+                    <label for="dob">Date of Birth :</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <!-- Existing Fields for Email, Password, and Captcha -->
+                <div class="input-group">
+                    <input type="text" id="signup-email" placeholder="Email or Mobile" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+                </div>
+                <div class="captcha-group">
+                    <span id="captcha-display-signup">XYZ987</span>
+                    <span class="refresh-captcha" onclick="generateCaptcha('captcha-signup', 'captcha-display-signup')">🔄</span>
+                    <input type="text" id="captcha-signup" placeholder="Enter Captcha" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div id="otp-box-signup" style="display:none;">
+                <input type="text" id="otp-signup" placeholder="Enter OTP" required>
+                <button onclick="verifyOTP('otp-signup', 'otp-box-signup', 'signup-form', 'otp-error-signup')">Verify OTP</button>
+                <p id="otp-error-signup" style="color: red;"></p>
+                <button id="resend-signup" style="display:none;" onclick="sendOTP('signup-form', 'otp-box-signup', 'resend-signup')">Resend OTP</button>
+            </div>
+            <p class="switch-form-link" onclick="showLogin()">Already have an account? <span>Login</span></p>
+        </div>
+    </div>
+
+    </section>
+
+    <section>
+        
+    <section>
+        <footer class="footer">
+          <div class="info">
+            <div class="cpn">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>About</li>
+                <li><a href=""></a>Careers</li>
+                <li><a href=""></a>contact</li>
+              </ul>
+              </div>
+            <div class="res">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>Documentation</li>
+                <li><a href=""></a>Help Center</li>
+                <li><a href=""></a>Privacy</li>
+              </ul>
+              </div>
+            <div class="con">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a><img src="img/facebook.png" alt=""></li>
+                <li><a href=""></a><img src="img/twitter.png" alt=""></li>
+                <li><a href=""></a><img src="img/instagram.png" alt=""></li>
+                <li><a href=""></a><img src="img/linkedin.png" alt=""></li>
+              </ul>
+            </div>
+            </div>
+            <div class="term">
+              <p>© 2025 VidyalankarEvents. All rights reserved.</p>
+              <p>Created by Deepu Amir Jaypraksh.</p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </section>
+</body>
+</html>
