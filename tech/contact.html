@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Store Login & Signup</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+  <section>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2>Vidyalankar Events</h2>
+            </div>
+
+            <div class="navList">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Features</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">contact us</a></li>
+                </ul>
+
+                <div class="dropdown">
+                    <button class="dropdown-button" onclick="toggleDropdown()">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      Account
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    
+                    <div class="dropdown-content" id="myDropdown">
+                      <p class="sign-in-text">Sign in to access your profile and manage events</p>
+                      <button class="sign-in-button">Sign In</button>
+                      
+                      <a href="#" class="menu-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Registered Events
+                        <span class="count">3</span>
+                      </a>
+                      
+                      <a href="#" class="menu-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        Liked Events
+                        <span class="count">12</span>
+                      </a>
+                      
+                      <a href="#" class="menu-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Settings
+                      </a>
+                    </div>
+                </div>
+            </div>
+            
+              
+        </div>
+    </header>
+</section>
+
+
+
+    <section>
+      <div class="hero-section">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Get in Touch</h1>
+            <p>Have question about VidyalankarEvents? We're here to help!</p>
+        </div>
+
+    </div>
+    </section>
+
+
+      <section class="contact">
+        <div class="container">
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form>
+                    <div class="form-group">
+                          <div class="input-with-icon">
+                            <span class="info-icon"><i class="fas fa-user"></i></span>
+                              <label for="name">Name</label>
+                              <input type="text" id="name" name="name" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="input-with-icon">
+                            <span class="info-icon"><i class="fas fa-envelope"></i></span>
+                              <label for="email">Email</label>
+                              <input type="email" id="email" name="email" required>
+                          </div>
+                      </div>
+
+                  <div class="form-group">
+                      <div class="input-with-icon">
+                        <span class="info-icon"><i class="fas fa-book"></i></span>
+                          <label for="subject">Subject</label>
+                          <input type="text" id="subject" name="subject" required>
+                      </div>
+                  </div>
+
+<div class="form-group">
+    <div class="input-with-icon">
+        <span class="info-icon"><i class="fas fa-comment"></i></span>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+</div>
+                    <button class="btn" type="submit">Send Message</button>
+                </form>
+            </div>
+    
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Address</h3>
+                        <p>Vidyalankar Campus</p>
+                        <p>Wadala (E), Mumbai - 400037</p>
+                        <p>Maharashtra, India</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p>+91 22 2416 1126</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>info@vidyalankarevents.edu</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p>Saturday: 9:00 AM - 1:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+              </div>
+                <h3>Location</h3>
+              </div>
+                <div class="location-map">
+                    <!-- Map placeholder - in a real implementation, you would embed Google Maps or another map service here -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.9656020516395!2d72.86799777444293!3d19.021237353690932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf394b345bdd%3A0x8d44ea4f85af3ceb!2sVidyalankar%20School%20of%20Information%20Technology!5e0!3m2!1sen!2sin!4v1740638348266!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    
+        </section>
+            
+  
+
+
+        
+    <section>
+        <footer class="footer">
+          <div class="info">
+            <div class="cpn">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>About</li>
+                <li><a href=""></a>Careers</li>
+                <li><a href=""></a>contact</li>
+              </ul>
+              </div>
+            <div class="res">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>Documentation</li>
+                <li><a href=""></a>Help Center</li>
+                <li><a href=""></a>Privacy</li>
+              </ul>
+              </div>
+            <div class="con">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a><img src="img/facebook.png" alt=""></li>
+                <li><a href=""></a><img src="img/twitter.png" alt=""></li>
+                <li><a href=""></a><img src="img/instagram.png" alt=""></li>
+                <li><a href=""></a><img src="img/linkedin.png" alt=""></li>
+              </ul>
+            </div>
+            </div>
+            <div class="term">
+              <p>© 2025 VidyalankarEvents. All rights reserved.</p>
+              <p>Created by Deepu Amir Jaypraksh.</p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </section>
+</body>
+</html>

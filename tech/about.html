@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Store Login & Signup</title>
+    <link rel="stylesheet" href="about.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <section>
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <h2>Vidyalankar Events</h2>
+                </div>
+
+                <div class="navList">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Features</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">contact us</a></li>
+                    </ul>
+
+                    <div class="dropdown">
+                        <button class="dropdown-button" onclick="toggleDropdown()">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                          Account
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        
+                        <div class="dropdown-content" id="myDropdown">
+                          <p class="sign-in-text">Sign in to access your profile and manage events</p>
+                          <button class="sign-in-button">Sign In</button>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Registered Events
+                            <span class="count">3</span>
+                          </a>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            Liked Events
+                            <span class="count">12</span>
+                          </a>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Settings
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                
+                  
+            </div>
+        </header>
+    </section>
+
+
+    <section>
+      <div class="hero-section">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Get in Touch</h1>
+            <p>Have question about VidyalankarEvents? We're here to help!</p>
+        </div>
+
+    </div>
+    </section>
+
+   <!-- Mission Section -->
+
+ <section class="abt">
+
+   <div class="about">
+    <h2 class="about-title">Our Mission</h2>
+    <p class="about-subtitle ">
+        To create a dynamic platform that brings together students, faculty, and staff, facilitating 
+        meaningful connections and unforgettable events that enhance the college experience at 
+        Vidyalankar.
+    </p>
+</div>
+
+<!-- Values Section -->
+<div class="about1">
+    <h2 class="about-title">Our Values</h2>
+    <p class="about-subtitle">The principles that guide everything we do</p>
+    
+    <div class="values-container">
+        <div class="value-card">
+            <div class="value-icon">👥</div>
+            <h3 class="value-title">Community First</h3>
+            <p class="value-description">We believe in fostering a vibrant and inclusive community where everyone can participate and grow.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">🏅</div>
+            <h3 class="value-title">Excellence</h3>
+            <p class="value-description">We strive for excellence in every event we organize, ensuring the highest quality experiences.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">⏱️</div>
+            <h3 class="value-title">Efficiency</h3>
+            <p class="value-description">Our platform is designed to make event management seamless and time-efficient for all users.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">🌐</div>
+            <h3 class="value-title">Innovation</h3>
+            <p class="value-description">We continuously innovate to provide cutting-edge solutions for campus event management.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Team Section -->
+<div class="about">
+    <h2 class="about-title">Our Team</h2>
+    <p class="about-subtitle">Meet the dedicated professionals behind VidyalankarEvents</p>
+    
+    <div class="team-container">
+        <div class="team-member">
+            <img src="img/rohini_mam.png" alt="Team Member" class="team-image">
+            <h3 class="team-name">Dr. Rohini Kelkar</h3>
+            <p class="team-position">Principal</p>
+        </div>
+        
+        <div class="team-member">
+            <img src="img/ashif sir.jpeg" alt="Team Member" class="team-image">
+            <h3 class="team-name">Prof. Aasif Rampurawala</h3>
+            <p class="team-position">Voice Principal</p>
+        </div>
+        
+        <div class="team-member">
+            <img src="img/sahil.jpeg" alt="Team Member" class="team-image">
+            <h3 class="team-name">Shahil Shah</h3>
+            <p class="team-position">Student Affairs Director</p>
+        </div>
+        
+        <div class="team-member">
+            <img src="img/Rohini_Gaikwad.png" alt="Team Member" class="team-image">
+            <h3 class="team-name">Prof. Rohini Deshai</h3>
+            <p class="team-position">Technical Director</p>
+        </div>
+        <div class="team-member">
+            <img src="img/Shraddha_S.jpg" alt="Team Member" class="team-image">
+            <h3 class="team-name">Prof. Shraddha Sonawane</h3>
+            <p class="team-position">Technical Director</p>
+        </div>
+        <div class="team-member">
+            <img src="img/deepu img.jpg" alt="Team Member" class="team-image" style="object-fit: fill;">
+            <h3 class="team-name">Stu. Deepu Kesarwani</h3>
+            <p class="team-position">Technical Director</p>
+        </div>
+        <div class="team-member">
+            <img src="img/jp.jpg" alt="Team Member" class="team-image">
+            <h3 class="team-name">Stu. Jaypraksh Maurya</h3>
+            <p class="team-position">Technical Director</p>
+        </div>
+        <div class="team-member">
+            <img src="img/amir.jpeg" alt="Team Member" class="team-image">
+            <h3 class="team-name">Stu. Aamir Shaik</h3>
+            <p class="team-position">Technical Director</p>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+
+<section class="dataEvent">
+    <div class="user">
+      <h2>5000+</h2>
+    <p>Active Users</p>
+    </div>
+    <div class="host">
+      <h2>500+</h2>
+      <p>Events Hosted</p>
+    </div>
+    <div class="rate">
+      <h2>99%</h2>
+      <p>Success Rate</p>
+    </div>
+    <div class="download">
+      <h2>10K</h2>
+      <p>Downloads</p>
+    </div>
+  </section>
+
+
+        
+    <section>
+        <footer class="footer">
+          <div class="info">
+            <div class="cpn">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>About</li>
+                <li><a href=""></a>Careers</li>
+                <li><a href=""></a>contact</li>
+              </ul>
+              </div>
+            <div class="res">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>Documentation</li>
+                <li><a href=""></a>Help Center</li>
+                <li><a href=""></a>Privacy</li>
+              </ul>
+              </div>
+            <div class="con">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a><img src="img/facebook.png" alt=""></li>
+                <li><a href=""></a><img src="img/twitter.png" alt=""></li>
+                <li><a href=""></a><img src="img/instagram.png" alt=""></li>
+                <li><a href=""></a><img src="img/linkedin.png" alt=""></li>
+              </ul>
+            </div>
+            </div>
+            <div class="term">
+              <p>© 2025 VidyalankarEvents. All rights reserved.</p>
+              <p>Created by Deepu Amir Jaypraksh.</p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </section>
+</body>
+</html>
