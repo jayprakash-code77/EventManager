@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+        
+        .search-bar {
+            flex: 1;
+            position: relative;
+            margin-right: 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-button {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #f1f1f1;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .filter-button.active {
+            background-color: #ff5722;
+            color: white;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ff5722;
+            font-weight: 500;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .event-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .event-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .event-details {
+            margin-bottom: 20px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .detail-item i {
+            margin-right: 10px;
+            opacity: 0.7;
+        }
+        
+        .event-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background-color: #f1f1f1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .register-button:hover {
+            background-color: #e64a19;
+        }
+        
+        /* Icons */
+        .material-icons {
+            font-family: 'Material Icons';
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search events...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-button active">All Events</button>
+                <button class="filter-button">Academic</button>
+                <button class="filter-button">Cultural</button>
+                <button class="filter-button">Sports</button>
+                <button class="filter-button">Technical</button>
+                <button class="filter-button">Workshop</button>
+                <button class="filter-button">Seminar</button>
+            </div>
+        </div>
+        
+        <div class="card-grid">
+            <!-- Card 1 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Tech Symposium">
+                    <div class="event-category">Technical</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Tech Symposium 2025</h3>
+                    <p class="event-description">Annual technology showcase featuring student projects and industry speakers</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>March 15, 2025 • 10:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Main Auditorium</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Technology</span>
+                        <span class="tag">Innovation</span>
+                        <span class="tag">Projects</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Cultural Fest">
+                    <div class="event-category">Cultural</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Cultural Fest</h3>
+                    <p class="event-description">A celebration of diversity through music, dance, and art performances</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>March 20, 2025 • 11:30 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>College Ground</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Culture</span>
+                        <span class="tag">Arts</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Career Fair">
+                    <div class="event-category">Seminar</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Career Fair</h3>
+                    <p class="event-description">Connect with top companies and explore career opportunities</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>March 25, 2025 • 9:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Seminar Hall</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Career</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Professional</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Sports Tournament">
+                    <div class="event-category">Sports</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Sports Tournament</h3>
+                    <p class="event-description">Annual inter-college sports competition featuring multiple sports</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>April 5, 2025 • 8:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Sports Complex</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Sports</span>
+                        <span class="tag">Competition</span>
+                        <span class="tag">Fitness</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Research Symposium">
+                    <div class="event-category">Academic</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Research Symposium</h3>
+                    <p class="event-description">Showcase of student and faculty research projects</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>April 15, 2025 • 10:30 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Conference Center</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Research</span>
+                        <span class="tag">Academic</span>
+                        <span class="tag">Innovation</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Coding Workshop">
+                    <div class="event-category">Workshop</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Coding Workshop</h3>
+                    <p class="event-description">Hands-on workshop on modern web development technologies</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>April 20, 2025 • 2:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Computer Lab</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Coding</span>
+                        <span class="tag">Technology</span>
+                        <span class="tag">Learning</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Leadership Summit">
+                    <div class="event-category">Seminar</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Leadership Summit</h3>
+                    <p class="event-description">Learn from industry leaders about effective management strategies</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>May 5, 2025 • 1:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Business School</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Management</span>
+                        <span class="tag">Business</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 8 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Art Exhibition">
+                    <div class="event-category">Cultural</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Art Exhibition</h3>
+                    <p class="event-description">Annual showcase of student artwork and creative expressions</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>May 12, 2025 • 3:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Art Gallery</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Art</span>
+                        <span class="tag">Creative</span>
+                        <span class="tag">Exhibition</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+            
+            <!-- Card 9 -->
+            <div class="event-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="Hackathon">
+                    <div class="event-category">Technical</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="event-title">Summer Hackathon</h3>
+                    <p class="event-description">48-hour coding challenge to build innovative solutions</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span>📅</span>
+                            <span>May 20, 2025 • 9:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>📍</span>
+                            <span>Innovation Hub</span>
+                        </div>
+                    </div>
+                    <div class="event-tags">
+                        <span class="tag">Coding</span>
+                        <span class="tag">Challenge</span>
+                        <span class="tag">Innovation</span>
+                    </div>
+                    <button class="register-button">Register Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Store Login & Signup</title>
+    <link rel="stylesheet" href="events.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <section>
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <h2>Vidyalankar Events</h2>
+                </div>
+
+                <div class="navList">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">contact us</a></li>
+                    </ul>
+
+                    <div class="dropdown">
+                        <button class="dropdown-button" onclick="toggleDropdown()">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                          Account
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        
+                        <div class="dropdown-content" id="myDropdown">
+                          <p class="sign-in-text">Sign in to access your profile and manage events</p>
+                          <button class="sign-in-button">Sign In</button>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Registered Events
+                            <span class="count">3</span>
+                          </a>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            Liked Events
+                            <span class="count">12</span>
+                          </a>
+                          
+                          <a href="#" class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Settings
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                
+                  
+            </div>
+        </header>
+    </section>
+
+
+    <section>
+      <div class="hero-section">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Discover Events</h1>
+            <p>Find and participate in exciting events across campus</p>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="events">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search events...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-button active">All Events</button>
+                    <button class="filter-button">Academic</button>
+                    <button class="filter-button">Cultural</button>
+                    <button class="filter-button">Sports</button>
+                    <button class="filter-button">Technical</button>
+                    <button class="filter-button">Workshop</button>
+                    <button class="filter-button">Seminar</button>
+                </div>
+            </div>
+            
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/event1.avif" alt="Tech Symposium">
+                        <div class="event-category">Technical</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Tech Symposium 2025</h3>
+                        <p class="event-description">Annual technology showcase featuring student projects and industry speakers</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>March 15, 2025 • 10:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Main Auditorium</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Technology</span>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Projects</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/culture.avif" alt="Cultural Fest">
+                        <div class="event-category">Cultural</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Cultural Fest</h3>
+                        <p class="event-description">A celebration of diversity through music, dance, and art performances</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>March 20, 2025 • 11:30 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>College Ground</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Culture</span>
+                            <span class="tag">Arts</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/cureer.avif" alt="Career Fair">
+                        <div class="event-category">Seminar</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Career Fair</h3>
+                        <p class="event-description">Connect with top companies and explore career opportunities</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>March 25, 2025 • 9:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Seminar Hall</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Career</span>
+                            <span class="tag">Networking</span>
+                            <span class="tag">Professional</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/sports.avif" alt="Sports Tournament">
+                        <div class="event-category">Sports</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Sports Tournament</h3>
+                        <p class="event-description">Annual inter-college sports competition featuring multiple sports</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>April 5, 2025 • 8:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Sports Complex</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Sports</span>
+                            <span class="tag">Competition</span>
+                            <span class="tag">Fitness</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/research.avif" alt="Research Symposium">
+                        <div class="event-category">Academic</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Research Symposium</h3>
+                        <p class="event-description">Showcase of student and faculty research projects</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>April 15, 2025 • 10:30 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Conference Center</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Research</span>
+                            <span class="tag">Academic</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/coding.avif" alt="Coding Workshop">
+                        <div class="event-category">Workshop</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Coding Workshop</h3>
+                        <p class="event-description">Hands-on workshop on modern web development technologies</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>April 20, 2025 • 2:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Computer Lab</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Coding</span>
+                            <span class="tag">Technology</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 7 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/leaadership1.avif" alt="Leadership Summit">
+                        <div class="event-category">Seminar</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Leadership Summit</h3>
+                        <p class="event-description">Learn from industry leaders about effective management strategies</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>May 5, 2025 • 1:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Business School</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Management</span>
+                            <span class="tag">Business</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 8 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/art.avif" alt="Art Exhibition">
+                        <div class="event-category">Art Exhibition</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Art Exhibition</h3>
+                        <p class="event-description">Annual showcase of student artwork and creative expressions</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>May 12, 2025 • 3:00 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Art Gallery</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Art</span>
+                            <span class="tag">Creative</span>
+                            <span class="tag">Exhibition</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+                
+                <!-- Card 9 -->
+                <div class="event-card">
+                    <div class="card-image">
+                        <img src="img/summer1.avif" alt="Hackathon">
+                        <div class="event-category">Technical</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="event-title">Summer Hackathon</h3>
+                        <p class="event-description">48-hour coding challenge to build innovative solutions</p>
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span>📅</span>
+                                <span>May 20, 2025 • 9:00 AM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>📍</span>
+                                <span>Innovation Hub</span>
+                            </div>
+                        </div>
+                        <div class="event-tags">
+                            <span class="tag">Coding</span>
+                            <span class="tag">Challenge</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        
+    <section>
+        <footer class="footer">
+          <div class="info">
+            <div class="cpn">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>About</li>
+                <li><a href=""></a>Careers</li>
+                <li><a href=""></a>contact</li>
+              </ul>
+              </div>
+            <div class="res">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a>Documentation</li>
+                <li><a href=""></a>Help Center</li>
+                <li><a href=""></a>Privacy</li>
+              </ul>
+              </div>
+            <div class="con">
+              <p>Company</p>
+              <ul>
+                <li><a href=""></a><img src="img/facebook.png" alt=""></li>
+                <li><a href=""></a><img src="img/twitter.png" alt=""></li>
+                <li><a href=""></a><img src="img/instagram.png" alt=""></li>
+                <li><a href=""></a><img src="img/linkedin.png" alt=""></li>
+              </ul>
+            </div>
+            </div>
+            <div class="term">
+              <p>© 2025 VidyalankarEvents. All rights reserved.</p>
+              <p>Created by Deepu Amir Jaypraksh.</p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </section>
+</body>
+</html>

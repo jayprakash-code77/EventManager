@@ -1,6 +1,6 @@
 :root{
-    /* --red:#f14621; */
-    --red:#4c150a;
+    --red:#f14621;
+    /* --red:#4c150a; */
 }
 
 *{
@@ -261,10 +261,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-/* 
-.event-card:hover {
-  transform: translateY(-5px);
-} */
+
 
 /* Dark overlay for readability */
 .overlay {
