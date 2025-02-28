@@ -339,3 +339,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const exploreAllButton = document.querySelector(".exploreAll");
+
+  if (exploreAllButton) {
+    exploreAllButton.addEventListener("click", function () {
+          window.location.href = "events.html"; // Replace with your actual file name
+      });
+  }
+});
+
+
+
