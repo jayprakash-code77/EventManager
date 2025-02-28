@@ -3,463 +3,598 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Cards</title>
+    <title>VidyalankarEvents - Payment</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
-            padding: 20px;
+            background: linear-gradient(135deg, #f8d7da, #d1ecf1);
+            min-height: 100vh;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .search-container {
+        .navbar {
             display: flex;
-            margin-bottom: 30px;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .search-bar {
-            flex: 1;
-            position: relative;
-            margin-right: 20px;
+        .logo {
+            color: #ff5733;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
         }
         
-        .search-bar input {
-            width: 100%;
-            padding: 12px 12px 12px 40px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            font-size: 16px;
-            outline: none;
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-        }
-        
-        .filter-buttons {
+        .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-button {
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: none;
-            background-color: #f1f1f1;
-            color: #666;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        .filter-button.active {
-            background-color: #ff5722;
-            color: white;
-        }
-        
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
         
-        .event-card {
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        .nav-account {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #555;
+        }
+
+        .nav-account i {
+            margin-left: 5px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .payment-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
         }
         
-        .event-card:hover {
-            transform: translateY(-5px);
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
         
-        .card-image {
-            position: relative;
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .event-category {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            color: #ff5722;
-            font-weight: 500;
-        }
-        
-        .card-content {
-            padding: 20px;
-        }
-        
-        .event-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .payment-title {
+            font-size: 24px;
+            font-weight: bold;
             color: #333;
+            margin-bottom: 10px;
         }
         
-        .event-description {
+        .payment-subtitle {
             color: #666;
-            margin-bottom: 20px;
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 16px;
         }
         
-        .event-details {
-            margin-bottom: 20px;
+        .payment-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .payment-details {
+            flex: 1;
+        }
+        
+        .payment-details h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
         }
         
         .detail-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            color: #777;
+            margin-bottom: 10px;
+        }
+        
+        .detail-label {
+            width: 150px;
+            color: #666;
             font-size: 14px;
         }
         
-        .detail-item i {
-            margin-right: 10px;
-            opacity: 0.7;
+        .detail-value {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
         }
         
-        .event-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
+        .payment-amount {
+            text-align: right;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            width: 200px;
         }
         
-        .tag {
-            background-color: #f1f1f1;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+        .amount-label {
+            font-size: 14px;
             color: #666;
+            margin-bottom: 5px;
         }
         
-        .register-button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ff5722;
-            color: white;
-            border: none;
+        .amount-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+        
+        .payment-methods {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .payment-qr {
+            flex: 1;
+            text-align: center;
+            padding-right: 30px;
+        }
+        
+        .qr-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .qr-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .qr-instructions {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .payment-options {
+            flex: 1;
+            border-left: 1px solid #eee;
+            padding-left: 30px;
+        }
+        
+        .option-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-option:hover {
+            border-color: #ff5733;
+            background-color: #fff9f8;
+        }
+        
+        .payment-option.active {
+            border-color: #ff5733;
+            background-color: #fff9f8;
+        }
+        
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+        
+        .option-text {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .payment-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
             border-radius: 5px;
             font-size: 16px;
-            font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.3s;
+            text-align: center;
+            border: none;
+            transition: all 0.3s ease;
         }
         
-        .register-button:hover {
-            background-color: #e64a19;
+        .btn-secondary {
+            background-color: #f1f1f1;
+            color: #333;
+            flex: 1;
         }
         
-        /* Icons */
-        .material-icons {
-            font-family: 'Material Icons';
-            font-size: 18px;
+        .btn-primary {
+            background-color: #ff5733;
+            color: white;
+            flex: 2;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .payment-note {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Timer styling */
+        .payment-timer {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .timer-value {
+            font-weight: bold;
+            color: #ff5733;
+        }
+        
+        /* QR Code  */
+        .qr-container {
+            position: relative;
+        }
+        
+        .qr-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ff5733;
+        }
+        
+        /* Receipt preview */
+        .receipt-preview {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .receipt-preview i {
+            margin-right: 5px;
+            color: #28a745;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="search-container">
-            <div class="search-bar">
-                <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Search events...">
-            </div>
-            <div class="filter-buttons">
-                <button class="filter-button active">All Events</button>
-                <button class="filter-button">Academic</button>
-                <button class="filter-button">Cultural</button>
-                <button class="filter-button">Sports</button>
-                <button class="filter-button">Technical</button>
-                <button class="filter-button">Workshop</button>
-                <button class="filter-button">Seminar</button>
-            </div>
+    <nav class="navbar">
+        <a href="#" class="logo">VidyalankarEvents</a>
+        <div class="nav-links">
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Events</a>
         </div>
-        
-        <div class="card-grid">
-            <!-- Card 1 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Tech Symposium">
-                    <div class="event-category">Technical</div>
+        <div class="nav-account">
+            <i class="fas fa-user"></i> Account <i class="fas fa-chevron-down"></i>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="payment-card">
+            <div class="payment-header">
+                <h1 class="payment-title">Complete Your Payment</h1>
+                <p class="payment-subtitle">Cultural Fest Registration</p>
+            </div>
+            
+            <div class="payment-timer">
+                Time remaining to complete payment: <span class="timer-value">14:59</span>
+            </div>
+            
+            <div class="payment-info">
+                <div class="payment-details">
+                    <h3>Registration Details</h3>
+                    <div class="detail-item">
+                        <div class="detail-label">Registration ID:</div>
+                        <div class="detail-value">VLE2025031542</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Event:</div>
+                        <div class="detail-value">Cultural Fest</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date:</div>
+                        <div class="detail-value">March 20, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Registrant:</div>
+                        <div class="detail-value">John Doe</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Department:</div>
+                        <div class="detail-value">Computer Engineering</div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="event-title">Tech Symposium 2025</h3>
-                    <p class="event-description">Annual technology showcase featuring student projects and industry speakers</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>March 15, 2025 • 10:00 AM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Main Auditorium</span>
-                        </div>
-                    </div>
-                    <div class="event-tags">
-                        <span class="tag">Technology</span>
-                        <span class="tag">Innovation</span>
-                        <span class="tag">Projects</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
+                
+                <div class="payment-amount">
+                    <div class="amount-label">Total Amount</div>
+                    <div class="amount-value">₹200</div>
                 </div>
             </div>
             
-            <!-- Card 2 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Cultural Fest">
-                    <div class="event-category">Cultural</div>
+            <div class="payment-methods">
+                <div class="payment-qr">
+                    <h3 class="qr-title">Scan & Pay</h3>
+                    <p class="qr-subtitle">Use any UPI app to scan and pay</p>
+                    
+                    <div class="qr-container">
+                        <div class="qr-code">
+                            <!-- QR Code Image (using SVG to create a QR-like pattern) -->
+                            <svg width="100%" height="100%" viewBox="0 0 29 29">
+                                <rect x="0" y="0" width="29" height="29" fill="white"/>
+                                <!-- QR pattern (simplified) -->
+                                <rect x="0" y="0" width="7" height="7" fill="black"/>
+                                <rect x="1" y="1" width="5" height="5" fill="white"/>
+                                <rect x="2" y="2" width="3" height="3" fill="black"/>
+                                
+                                <rect x="22" y="0" width="7" height="7" fill="black"/>
+                                <rect x="23" y="1" width="5" height="5" fill="white"/>
+                                <rect x="24" y="2" width="3" height="3" fill="black"/>
+                                
+                                <rect x="0" y="22" width="7" height="7" fill="black"/>
+                                <rect x="1" y="23" width="5" height="5" fill="white"/>
+                                <rect x="2" y="24" width="3" height="3" fill="black"/>
+                                
+                                <rect x="11" y="0" width="7" height="7" fill="black"/>
+                                <rect x="0" y="11" width="7" height="7" fill="black"/>
+                                <rect x="22" y="11" width="7" height="7" fill="black"/>
+                                <rect x="11" y="22" width="7" height="7" fill="black"/>
+                                
+                                <!-- Data pattern (simplified) -->
+                                <rect x="9" y="9" width="1" height="1" fill="black"/>
+                                <rect x="11" y="9" width="1" height="1" fill="black"/>
+                                <rect x="13" y="9" width="1" height="1" fill="black"/>
+                                <rect x="15" y="9" width="1" height="1" fill="black"/>
+                                <rect x="19" y="9" width="1" height="1" fill="black"/>
+                                
+                                <rect x="9" y="11" width="1" height="1" fill="black"/>
+                                <rect x="13" y="11" width="1" height="1" fill="black"/>
+                                <rect x="17" y="11" width="1" height="1" fill="black"/>
+                                <rect x="19" y="11" width="1" height="1" fill="black"/>
+                                
+                                <rect x="9" y="13" width="1" height="1" fill="black"/>
+                                <rect x="11" y="13" width="1" height="1" fill="black"/>
+                                <rect x="13" y="13" width="1" height="1" fill="black"/>
+                                <rect x="19" y="13" width="1" height="1" fill="black"/>
+                                
+                                <rect x="9" y="15" width="1" height="1" fill="black"/>
+                                <rect x="11" y="15" width="1" height="1" fill="black"/>
+                                <rect x="15" y="15" width="1" height="1" fill="black"/>
+                                <rect x="17" y="15" width="1" height="1" fill="black"/>
+                                
+                                <rect x="9" y="17" width="1" height="1" fill="black"/>
+                                <rect x="13" y="17" width="1" height="1" fill="black"/>
+                                <rect x="15" y="17" width="1" height="1" fill="black"/>
+                                <rect x="17" y="17" width="1" height="1" fill="black"/>
+                                <rect x="19" y="17" width="1" height="1" fill="black"/>
+                                
+                                <rect x="9" y="19" width="1" height="1" fill="black"/>
+                                <rect x="11" y="19" width="1" height="1" fill="black"/>
+                                <rect x="15" y="19" width="1" height="1" fill="black"/>
+                                <rect x="19" y="19" width="1" height="1" fill="black"/>
+                            </svg>
+                        </div>
+                        <div class="qr-logo">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="qr-instructions">
+                        <p>UPI ID: cultural@vidyalankar</p>
+                        <p>Scan the QR code using any UPI app like Google Pay, PhonePe, Paytm, or BHIM</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="event-title">Cultural Fest</h3>
-                    <p class="event-description">A celebration of diversity through music, dance, and art performances</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>March 20, 2025 • 11:30 AM</span>
+                
+                <div class="payment-options">
+                    <h3 class="option-title">Other Payment Methods</h3>
+                    
+                    <div class="payment-option active">
+                        <div class="option-icon">
+                            <i class="fas fa-qrcode"></i>
                         </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>College Ground</span>
-                        </div>
-                    </div>
-                    <div class="event-tags">
-                        <span class="tag">Culture</span>
-                        <span class="tag">Arts</span>
-                        <span class="tag">Performance</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Career Fair">
-                    <div class="event-category">Seminar</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Career Fair</h3>
-                    <p class="event-description">Connect with top companies and explore career opportunities</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>March 25, 2025 • 9:00 AM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Seminar Hall</span>
+                        <div class="option-text">
+                            UPI / QR Code Payment
                         </div>
                     </div>
-                    <div class="event-tags">
-                        <span class="tag">Career</span>
-                        <span class="tag">Networking</span>
-                        <span class="tag">Professional</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
-            </div>
-            
-            <!-- Card 4 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Sports Tournament">
-                    <div class="event-category">Sports</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Sports Tournament</h3>
-                    <p class="event-description">Annual inter-college sports competition featuring multiple sports</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>April 5, 2025 • 8:00 AM</span>
+                    
+                    <div class="payment-option">
+                        <div class="option-icon">
+                            <i class="fas fa-credit-card"></i>
                         </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Sports Complex</span>
+                        <div class="option-text">
+                            Credit / Debit Card
                         </div>
                     </div>
-                    <div class="event-tags">
-                        <span class="tag">Sports</span>
-                        <span class="tag">Competition</span>
-                        <span class="tag">Fitness</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
-            </div>
-            
-            <!-- Card 5 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Research Symposium">
-                    <div class="event-category">Academic</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Research Symposium</h3>
-                    <p class="event-description">Showcase of student and faculty research projects</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>April 15, 2025 • 10:30 AM</span>
+                    
+                    <div class="payment-option">
+                        <div class="option-icon">
+                            <i class="fas fa-university"></i>
                         </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Conference Center</span>
+                        <div class="option-text">
+                            Net Banking
                         </div>
                     </div>
-                    <div class="event-tags">
-                        <span class="tag">Research</span>
-                        <span class="tag">Academic</span>
-                        <span class="tag">Innovation</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
-            </div>
-            
-            <!-- Card 6 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Coding Workshop">
-                    <div class="event-category">Workshop</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Coding Workshop</h3>
-                    <p class="event-description">Hands-on workshop on modern web development technologies</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>April 20, 2025 • 2:00 PM</span>
+                    
+                    <div class="payment-option">
+                        <div class="option-icon">
+                            <i class="fas fa-wallet"></i>
                         </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Computer Lab</span>
+                        <div class="option-text">
+                            Digital Wallets
                         </div>
                     </div>
-                    <div class="event-tags">
-                        <span class="tag">Coding</span>
-                        <span class="tag">Technology</span>
-                        <span class="tag">Learning</span>
+                    
+                    <div class="receipt-preview">
+                        <i class="fas fa-check-circle"></i> E-Receipt will be sent to your email after payment
                     </div>
-                    <button class="register-button">Register Now</button>
                 </div>
             </div>
             
-            <!-- Card 7 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Leadership Summit">
-                    <div class="event-category">Seminar</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Leadership Summit</h3>
-                    <p class="event-description">Learn from industry leaders about effective management strategies</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>May 5, 2025 • 1:00 PM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Business School</span>
-                        </div>
-                    </div>
-                    <div class="event-tags">
-                        <span class="tag">Leadership</span>
-                        <span class="tag">Management</span>
-                        <span class="tag">Business</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
+            <div class="payment-actions">
+                <button class="btn btn-secondary">Cancel</button>
+                <button class="btn btn-primary">I've Completed Payment</button>
             </div>
             
-            <!-- Card 8 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Art Exhibition">
-                    <div class="event-category">Cultural</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Art Exhibition</h3>
-                    <p class="event-description">Annual showcase of student artwork and creative expressions</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>May 12, 2025 • 3:00 PM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Art Gallery</span>
-                        </div>
-                    </div>
-                    <div class="event-tags">
-                        <span class="tag">Art</span>
-                        <span class="tag">Creative</span>
-                        <span class="tag">Exhibition</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
-            </div>
-            
-            <!-- Card 9 -->
-            <div class="event-card">
-                <div class="card-image">
-                    <img src="/api/placeholder/400/320" alt="Hackathon">
-                    <div class="event-category">Technical</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="event-title">Summer Hackathon</h3>
-                    <p class="event-description">48-hour coding challenge to build innovative solutions</p>
-                    <div class="event-details">
-                        <div class="detail-item">
-                            <span>📅</span>
-                            <span>May 20, 2025 • 9:00 AM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>📍</span>
-                            <span>Innovation Hub</span>
-                        </div>
-                    </div>
-                    <div class="event-tags">
-                        <span class="tag">Coding</span>
-                        <span class="tag">Challenge</span>
-                        <span class="tag">Innovation</span>
-                    </div>
-                    <button class="register-button">Register Now</button>
-                </div>
+            <div class="payment-note">
+                <p>Note: Your registration will be confirmed only after successful payment verification.</p>
             </div>
         </div>
     </div>
+    
+    <script>
+        // Timer functionality
+        let minutes = 14;
+        let seconds = 59;
+        
+        function updateTimer() {
+            document.querySelector('.timer-value').textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            } else {
+                clearInterval(timerInterval);
+                alert('Payment session expired. Please start again.');
+                // Redirect to registration page
+                // window.location.href = 'registration.html';
+            }
+        }
+        
+        const timerInterval = setInterval(updateTimer, 1000);
+        
+        // Payment option selection
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all options
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                
+                // Add active class to clicked option
+                option.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+<!-- Add this to the signup form, right after the form opening tag -->
+<div class="input-group">
+    <label for="signup-role">Select your role:</label>
+    <select id="signup-role" required>
+        <option value="">-- Select Role --</option>
+        <option value="admin">Admin</option>
+        <option value="faculty">Faculty</option>
+        <option value="student">Student</option>
+    </select>
+</div>
+
+<!-- Add this script at the end of your body tag -->
+<script>
+    // Function to validate role selection
+    function validateRoleSelection(roleId) {
+        const roleSelect = document.getElementById(roleId);
+        if (!roleSelect.value) {
+            alert("Please select a role (Admin, Faculty, or Student) to continue.");
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
+
+    // Setup form field toggling based on role selection for signup only
+    document.addEventListener('DOMContentLoaded', function() {
+        const roleSelect = document.getElementById('signup-role');
+        const form = document.getElementById('signup-form');
+        const formInputs = form.querySelectorAll('input, button[type="submit"]');
+        
+        // Disable all fields initially except the role selector
+        formInputs.forEach(input => {
+            if (input.id !== 'signup-role') {
+                input.disabled = true;
+            }
+        });
+        
+        // Enable fields when role is selected
+        roleSelect.addEventListener('change', function() {
+            const isRoleSelected = !!this.value;
+            formInputs.forEach(input => {
+                if (input.id !== 'signup-role') {
+                    input.disabled = !isRoleSelected;
+                }
+            });
+        });
+    });
+</script>
