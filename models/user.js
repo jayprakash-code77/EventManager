@@ -1,10 +1,25 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-    name: {
+    fname: {
         type: String,
         required: true
     },
+    lname: {
+        type: String,
+        required: true
+    },
+    dob:{
+        type: String, 
+        required: true
+    },
+    gender:{
+        type: String,
+        enum: ["male", "female", "other"],
+        default: "",
+        required: true
+    },
+
     email: {
         type: String,
         required: true,
@@ -16,8 +31,9 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ["student", "admin"],
-        default: "student"
+        enum: ["student", "admin","faculty"],
+        default: "student",
+        required:true
     },
 }, { 
     timestamps: true 

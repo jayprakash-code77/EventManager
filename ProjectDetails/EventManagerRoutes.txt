@@ -1,0 +1,118 @@
+EventManager :-
+	Landing Page: / > Not protected
+	login: /login / > Not protected
+	sign-up : /signup / > Not protected
+	
+		
+	
+	Student Page: /student > Protected
+		1) /student/:id/register > register for events
+		2) /student/:id/profile > show profile
+		3) /student/:id > to show all the events.
+	
+	
+	
+	Faculty Page: /faculty  > Protected
+		1)/faculty/:id
+		2)/faculty/:id/profile
+		3)/faculty/:id/createE
+		4)/faculty/:id/events/
+		5)/faculty/:id/events/:id
+		6)/faculty/:id/events/:id/edit
+		
+		
+		
+	Admin Page :  /admin > Protected
+		1)/admin/:id 
+		2)/admin/:id/profile
+		3)/admin/:id/events > to show all the events
+		4)/admin/:id/events/:id > to show the particular event
+		5)/admin/:id/events/:id/edit
+		
+		
+Public Routes (Not Protected)
+✅ Landing Page (/) → Home page with an introduction to the platform.
+✅ Login (/login) → Login form for all users.
+✅ Sign-up (/signup) → Registration form for students and faculty.
+✅ Forgot Password (/forgot-password) → (🆕 Added) Allows users to recover their password.
+
+
+
+👨‍🎓 Student Routes (Protected)
+✅ Student Dashboard (/student/:id) → Shows all available events.
+✅ Event Registration (/student/:id/events/:eventId/register) (🔄 Updated) → Registers for a specific event.
+✅ Profile (/student/:id/profile) → Displays and allows updates to student details.
+✅ My Registered Events (/student/:id/my-events) (🆕 Added) → Shows events the student has registered for.
+
+
+
+
+👩‍🏫 Faculty Routes (Protected)
+✅ Faculty Dashboard (/faculty/:id) → Overview of faculty-related actions.
+✅ Profile (/faculty/:id/profile) → View and update faculty details.
+✅ Create Event (/faculty/:id/events/create) (🔄 Updated) → Faculty can create new events.
+✅ Manage Events (/faculty/:id/events) → Lists all events created by faculty.
+✅ Event Details (/faculty/:id/events/:eventId) → View event details.
+✅ Edit Event (/faculty/:id/events/:eventId/edit) → Update existing events.
+✅ Check Approval Status → /faculty/:id/events/:eventId/status (🆕 New Route)
+
+
+
+
+
+
+🛠 Admin Routes (Protected)
+✅ Admin Dashboard (/admin/:id) → Admin control panel.
+✅ Profile (/admin/:id/profile) → View and update admin details.
+✅ Manage All Events (/admin/events) (🔄 Updated) → Lists all events (admin-wide).
+✅ Event Details (/admin/events/:eventId) (🔄 Updated) → View details of any event.
+✅ Edit Event (/admin/events/:eventId/edit) (🔄 Updated) → Modify event details.
+✅ Manage Users (/admin/users) (🆕 Added) → View, promote, or delete users.
+✅ Approve Event → /admin/events/:eventId/approve (🆕 New Route)
+✅ Reject Event → /admin/events/:eventId/reject (🆕 New Route)
+
+
+
+
+
+
+
+		
+	
+	
+	
+	
+Public
+/
+/login
+/signup
+/forgot-password (New)
+
+Student
+/student/:id (Dashboard)
+/student/:id/profile
+/student/:id/events/:eventId/register
+/student/:id/my-events (New)
+
+
+Faculty
+/faculty/:id (Dashboard)
+/faculty/:id/profile
+/faculty/:id/events/create (Updated)
+/faculty/:id/events
+/faculty/:id/events/:eventId
+/faculty/:id/events/:eventId/edit
+/faculty/:id/events/:eventId/status
+
+
+
+Admin
+/admin/:id (Dashboard)
+/admin/:id/profile
+/admin/events (Updated)
+/admin/events/:eventId (Updated)
+/admin/events/:eventId/edit (Updated)
+/admin/users (New)
+/admin/events/:eventId/approve
+/admin/events/:eventId/reject
+	

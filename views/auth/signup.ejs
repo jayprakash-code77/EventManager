@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth</title>
+  <link rel="stylesheet" href="/CSS/login.css">
+  <script defer src="/JS/login.js"></script>
+</head>
+
+<body>
+  <section>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h2>Vidyalankar Events</h2>
+        </div>
+
+        <div class="navList">
+          <%- include('../partials/navList.ejs') %>
+        </div>
+
+      </div>
+    </header>
+  </section>
+
+  <section class="con-box">
+    <div class="container">
+      <div class="form-box" id="login-box">
+        <h2>Welcome Back</h2>
+        <p>Sign in to your account to continue</p>
+
+        <form id="login-form" 
+          method="POST" action="/auth">
+
+          <div class="input-group">
+            <input type="text" id="login-email" name="email" placeholder="Email or Mobile" required>
+          </div>
+
+          <div class="input-group">
+            <input type="password" id="login-password" name="password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+          </div>
+<!-- 
+          <div class="captcha-group">
+            <span id="captcha-display-login"></span>
+            <span class="refresh-captcha" onclick="generateCaptcha('captcha-login', 'captcha-display-login')">🔄</span>
+            <input type="text" id="captcha-login" name="captcha" placeholder="Enter Captcha" required>
+          </div> -->
+
+          <button type="submit">Login</button>
+        </form>
+
+
+
+
+        <div id="otp-box-login" style="display:none;">
+          <input type="text" id="otp-login" placeholder="Enter OTP" required>
+          <button onclick="verifyOTP('otp-login', 'otp-box-login', 'login-form', 'otp-error-login')">Verify OTP</button>
+          <p id="otp-error-login" style="color: red;"></p>
+          <button id="resend-login" style="display:none;"
+            onclick="sendOTP('login-form', 'otp-box-login', 'resend-login')">Resend OTP</button>
+        </div>
+        <p class="switch-form-link" onclick="showSignup()">Don't have an account?<span>Sign Up</span></p>
+      </div>
+
+
+
+
+      <div class="form-box" id="signup-box" style="display: none;">
+        <h2>Create Account</h2>
+        <p>Join the Vidyalankar events community.</p>
+
+        <!-- New Fields for Name, Gender, DOB -->
+        <form id="signup-form"; onsubmit="sendOTP('signup-form', 'otp-box-signup', 'resend-signup');" method="POST" action="/signup">
+
+          <div class="dropdownSign input-group">
+            <select name="role">
+              <option value="admin">Admin</option>
+              <option value="faculty">Faculty</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="first-name" name="fname" placeholder="First Name" required>
+          </div>
+          <div class="input-group">
+            <input type="text" id="last-name" name="lname" placeholder="Last Name" required>
+          </div>
+          <div class="input-group">
+            <label for="gender">Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+          </div>
+
+          <div class="input-group">
+            <label for="dob">Date of Birth :</label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+
+          <div class="input-group">
+            <input type="text" id="signup-email" name="email" placeholder="Email or Mobile" required>
+          </div>
+
+          <div class="input-group">
+            <input type="password" id="signup-password" name="password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+          </div>
+
+          <div class="captcha-group">
+            <span id="captcha-display-signup"></span>
+            <span class="refresh-captcha"
+              onclick="generateCaptcha('captcha-signup', 'captcha-display-signup')">🔄</span>
+            <input type="text" id="captcha-signup" name="captcha" placeholder="Enter Captcha" required>
+          </div>
+
+          <button type="submit">Sign Up</button>
+        </form>
+
+
+        <div id="otp-box-signup" style="display:none;">
+          <input type="text" id="otp-signup" placeholder="Enter OTP" required>
+          <button onclick="verifyOTP('otp-signup', 'otp-box-signup', 'signup-form', 'otp-error-signup')">Verify
+            OTP</button>
+          <p id="otp-error-signup" style="color: red;"></p>
+          <button id="resend-signup" style="display:none;"
+            onclick="sendOTP('signup-form', 'otp-box-signup', 'resend-signup')">Resend OTP</button>
+        </div>
+        <p class="switch-form-link" onclick="showLogin()">Already have an account? <span>Login</span></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- this is footer -->
+  <%- include('../partials/footer') %>
+
+</body>
+
+</html>
