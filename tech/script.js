@@ -350,4 +350,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const featureInButton = document.querySelector(".try-button");
+  
+    if (featureInButton) {
+        featureInButton.addEventListener("click", function () {
+            window.location.href = "facultyDash.html"; // Replace with your actual file name
+        });
+    }
+  });
+
+
 
